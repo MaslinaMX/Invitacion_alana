@@ -18,6 +18,7 @@ function reproducir() {
 }
 
 // Al terminar vuelve al segundo 55
+audio.loop = false; // el bucle se maneja aquí para volver siempre al segundo 55
 audio.addEventListener("ended", () => {
   audio.currentTime = INICIO_CANCION;
   audio.play().catch(() => {});
@@ -53,7 +54,7 @@ document.getElementById("abrir").addEventListener("click", () => {
 
 // ===== Decoración de murciélagos y estrellas de fondo =====
 const fondo = document.querySelector("main .fondo-decorativo");
-const iconos = ["🦇","🎃","👻","⭐","🕷️","🌙","🎈","🍬"];
+const iconos = ["🦇","💜","👻","⭐","🕷️","🌙","🎈","🍬"];
 for (let i = 0; i < 22; i++) {
   const el = document.createElement("span");
   el.className = "deco";
@@ -103,7 +104,7 @@ function iniciarAnimaciones() {
     .from(".foto-cumple", { scale: 0, rotation: -6, duration: 1 }, "-=0.2")
     .from(".nombre", { y: 30, opacity: 0, duration: 0.7 }, "-=0.4");
 
-  gsap.to(".foto-cumple", { boxShadow: "0 0 45px #7cff6b", repeat: -1, yoyo: true, duration: 1.2, ease: "sine.inOut" });
+  gsap.to(".foto-cumple", { boxShadow: "0 0 45px #f2c14e", repeat: -1, yoyo: true, duration: 1.2, ease: "sine.inOut" });
 
   gsap.to(".lateral.izq", { y: -120, rotation: -8, scrollTrigger: { trigger: "#inicio", start: "top top", end: "bottom top", scrub: true } });
   gsap.to(".lateral.der", { y: 120, rotation: 8, scrollTrigger: { trigger: "#inicio", start: "top top", end: "bottom top", scrub: true } });
@@ -124,7 +125,7 @@ form.addEventListener("submit", e => {
   const nombre = document.getElementById("nombre-invitado").value.trim();
   const personas = document.getElementById("personas").value;
   const mensaje = document.getElementById("mensaje").value.trim();
-  const texto = `🦇 Confirmación Cumple 4 de Alana Valentina 🎃\nNombre: ${nombre}\nPersonas: ${personas}\nFecha: viernes 30 de octubre de 2026\nLugar: Splashland, Playa del Carmen` + (mensaje ? `\nMensaje: ${mensaje}` : "");
+  const texto = `🦇 Confirmación Cumple 4 de Alana Valentina 💜\nNombre: ${nombre}\nPersonas: ${personas}\nFecha: viernes 30 de octubre de 2026\nLugar: Splashland, Playa del Carmen` + (mensaje ? `\nMensaje: ${mensaje}` : "");
   window.open(`https://wa.me/529841684486?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
   confirmacion.hidden = false;
   gsap.from(confirmacion, { scale: 0.5, opacity: 0, duration: 0.6, ease: "back.out(2)" });
