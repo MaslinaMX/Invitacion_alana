@@ -139,3 +139,13 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 .titulo-reco{white-space:nowrap;font-size:clamp(1rem,5vw,2.4rem);letter-spacing:.5px;margin-bottom:18px}
 #recomendaciones .ubicacion-card{padding:40px 20px}
 @media (max-width:600px){#recomendaciones .ubicacion-card{padding:32px 14px}}
+
+/* ===== v12: nombre con degradado dorado y CUMPLE 4 con saltito ===== */
+.nombre{background:linear-gradient(90deg,#c98f1e 0%,#f2c14e 30%,#fff3b0 50%,#f2c14e 70%,#c98f1e 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-shadow:none;filter:drop-shadow(4px 4px 0 var(--morado-oscuro)) drop-shadow(0 0 18px rgba(242,193,78,.5))}
+.nombre span{-webkit-text-fill-color:initial;color:var(--rosa)}
+.nombre .nombre-sparkle{-webkit-text-fill-color:initial;color:#f2c14e}
+
+.cumple-saltito{font-weight:900;font-size:1.3rem;letter-spacing:4px;color:var(--blanco);text-shadow:3px 3px 0 var(--morado-oscuro)}
+.cumple-saltito .letra{display:inline-block;animation:saltito 1.4s ease-in-out infinite}
+@keyframes saltito{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.cumple-saltito .letra{animation:none}}
