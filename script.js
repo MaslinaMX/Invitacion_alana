@@ -1,11 +1,8 @@
-// ===== Audio: SoundCloud, arranca en el segundo 55 y se repite =====
-const INICIO_CANCION = 55000; // milisegundos
-const scIframe = document.getElementById("sc-player");
+// ===== Audio: KPopmusical.mp3, arranca en el segundo 55 y se repite =====
+const INICIO_CANCION = 55; // segundos
+const audio = document.getElementById("cancion");
 const botonMusica = document.getElementById("play-pausa");
-let scWidget = null;
-let listo = false;
-let quiereSonar = false;
-let yaIniciada = false;
+audio.loop = false; // el bucle se maneja abajo para volver siempre al segundo 55
 
 function actualizarBoton(sonando) {
   botonMusica.innerHTML = sonando ? `<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.5" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1.5" fill="currentColor"/></svg>` : `<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>`;
@@ -13,36 +10,27 @@ function actualizarBoton(sonando) {
 }
 
 function reproducir() {
-  quiereSonar = true;
-  if (!scWidget || !listo) return;
-  if (!yaIniciada) {
-    scWidget.seekTo(INICIO_CANCION);
-    yaIniciada = true;
+  if (audio.currentTime < INICIO_CANCION) {
+    if (audio.readyState >= 1) audio.currentTime = INICIO_CANCION;
+    else audio.addEventListener("loadedmetadata", () => { audio.currentTime = INICIO_CANCION; }, { once: true });
   }
-  scWidget.play();
+  audio.play().catch(() => {});
 }
 
 function pausarMusica() {
-  if (scWidget) scWidget.pause();
+  if (!audio.paused) audio.pause();
 }
 
-if (window.SC && scIframe) {
-  scWidget = SC.Widget(scIframe);
-  scWidget.bind(SC.Widget.Events.READY, () => {
-    listo = true;
-    if (quiereSonar) reproducir();
-  });
-  scWidget.bind(SC.Widget.Events.PLAY, () => actualizarBoton(true));
-  scWidget.bind(SC.Widget.Events.PAUSE, () => actualizarBoton(false));
-  scWidget.bind(SC.Widget.Events.FINISH, () => {
-    scWidget.seekTo(INICIO_CANCION);
-    scWidget.play();
-  });
-}
+audio.addEventListener("ended", () => {
+  audio.currentTime = INICIO_CANCION;
+  audio.play().catch(() => {});
+});
+audio.addEventListener("play", () => actualizarBoton(true));
+audio.addEventListener("pause", () => actualizarBoton(false));
 
 botonMusica.addEventListener("click", () => {
-  if (scWidget && listo) scWidget.isPaused(p => (p ? reproducir() : pausarMusica()));
-  else reproducir();
+  if (audio.paused) reproducir();
+  else pausarMusica();
 });
 
 // Pausar si cambian de pestaña o cierran la página
