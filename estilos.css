@@ -154,3 +154,7 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 .calabaza-img{width:150px;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));animation:rebote 1.2s ease-in-out infinite}
 .form{gap:12px}
 .form .btn{margin-top:0}
+
+/* ===== v14: HALLOWEEN naranja y números del contador dorados ===== */
+.halloween-naranja{color:#ff8a1f;text-shadow:4px 4px 0 var(--morado-oscuro)}
+.caja span{color:#f2c14e;text-shadow:0 3px 0 var(--morado-oscuro)}
