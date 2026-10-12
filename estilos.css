@@ -32,8 +32,8 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 @keyframes rebote{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-14px) scale(1.1)}}
 
 /* ===== Secciones ===== */
-.seccion{position:relative;z-index:1;min-height:100vh;padding:90px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.titulo-seccion{font-weight:900;font-size:clamp(1.9rem,5vw,3rem);color:var(--rosa);text-shadow:0 0 14px rgba(255,143,199,.6),0 3px 0 var(--morado-oscuro);margin-bottom:34px;text-transform:uppercase;letter-spacing:1px}
+.seccion{position:relative;z-index:1;min-height:auto;padding:56px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.titulo-seccion{font-weight:900;font-size:clamp(1.9rem,5vw,3rem);color:var(--rosa);text-shadow:0 0 14px rgba(255,143,199,.6),0 3px 0 var(--morado-oscuro);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px}
 .texto-centro{max-width:600px;margin:0 auto 26px;font-size:1.2rem;color:var(--lila-claro)}
 
 /* ===== Hero ===== */
@@ -70,8 +70,8 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 .destacado{font-weight:900;font-size:1.4rem!important;color:var(--amarillo)!important;margin:4px 0}
 
 /* ===== Countdown (sin segundos) ===== */
-.contador{display:flex;gap:22px;flex-wrap:nowrap;justify-content:center;align-items:stretch;width:100%}
-.caja{width:200px;padding:32px 14px;display:flex;flex-direction:column;align-items:center}
+.contador{display:flex;gap:18px;flex-wrap:nowrap;justify-content:center;align-items:stretch;width:100%}
+.caja{width:150px;padding:28px 10px;display:flex;flex-direction:column;align-items:center}
 .caja span{font-weight:900;font-size:4.2rem;line-height:1;color:var(--amarillo);text-shadow:0 3px 0 var(--morado-oscuro)}
 .caja small{font-weight:900;text-transform:uppercase;font-size:1rem;letter-spacing:2px;color:var(--lila-claro);margin-top:10px}
 
@@ -102,7 +102,7 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 
 @media (max-width:900px){.lateral{display:none}}
 @media (max-width:600px){
-  .contador{gap:10px}.caja{width:auto;flex:1;padding:22px 6px}.caja span{font-size:2.6rem}.caja small{font-size:.75rem;letter-spacing:1px}
+  .contador{gap:8px}.caja{width:auto;flex:1;padding:18px 4px}.caja span{font-size:2.2rem}.caja small{font-size:.75rem;letter-spacing:1px}
   .cumple-badge{width:145px;height:145px}.cumple-num{font-size:4.2rem}
   .hero-card{padding:30px 20px}
   .tarjeta{padding:30px 22px}
@@ -123,7 +123,7 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 @media (max-width:600px){.form{padding:26px 20px}.nombre{font-size:clamp(2rem,10vw,3rem)}}
 
 /* ===== v7: formulario RSVP ===== */
-#rsvp{padding-bottom:160px}
+#rsvp{padding-bottom:140px}
 .form{overflow:visible;gap:20px}
 .form textarea{height:120px;resize:none}
 .form .btn{margin-top:6px;margin-bottom:0;align-self:stretch;position:relative;z-index:2}

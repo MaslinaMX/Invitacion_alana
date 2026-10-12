@@ -30,6 +30,15 @@ botonMusica.addEventListener("click", () => {
   else audio.pause();
 });
 
+// ===== Pausar la música si cambian de pestaña o cierran la página =====
+function pausarMusica() {
+  if (!audio.paused) audio.pause();
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) pausarMusica();
+});
+window.addEventListener("pagehide", pausarMusica);
+
 // ===== Abrir invitación =====
 const intro = document.getElementById("intro");
 document.getElementById("abrir").addEventListener("click", () => {
@@ -61,15 +70,18 @@ const fechaEvento = new Date("2026-10-30T16:00:00-05:00");
 const elDias = document.getElementById("dias");
 const elHoras = document.getElementById("horas");
 const elMinutos = document.getElementById("minutos");
+const elSegundos = document.getElementById("segundos");
 function actualizarContador() {
   let d = fechaEvento - new Date();
-  if (d <= 0) { elDias.textContent = elHoras.textContent = elMinutos.textContent = "00"; return; }
+  if (d <= 0) { elDias.textContent = elHoras.textContent = elMinutos.textContent = elSegundos.textContent = "00"; return; }
   const dias = Math.floor(d / 864e5); d -= dias * 864e5;
   const horas = Math.floor(d / 36e5); d -= horas * 36e5;
-  const minutos = Math.floor(d / 6e4);
+  const minutos = Math.floor(d / 6e4); d -= minutos * 6e4;
+  const segundos = Math.floor(d / 1000);
   elDias.textContent = String(dias).padStart(2, "0");
   elHoras.textContent = String(horas).padStart(2, "0");
   elMinutos.textContent = String(minutos).padStart(2, "0");
+  elSegundos.textContent = String(segundos).padStart(2, "0");
 }
 actualizarContador();
 setInterval(actualizarContador, 1000);
