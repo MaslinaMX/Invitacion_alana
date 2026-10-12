@@ -133,4 +133,4 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 .logo-sub .x{color:var(--verde-neon)}
 .foto-cumple{position:relative;width:min(68vw,300px);aspect-ratio:1/1;margin:24px auto;border-radius:50%;overflow:hidden;border:6px solid #f2c14e;box-shadow:0 0 28px var(--verde-neon),0 12px 30px rgba(0,0,0,.4)}
 .foto-cumple img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.foto-anos{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:var(--morado-oscuro);color:var(--amarillo);font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:8px 18px;border-radius:999px;border:2px solid var(--verde-neon);white-space:nowrap;font-size:1rem}
+.foto-anos{position:relative;display:block;width:max-content;margin:-4px auto 0;background:var(--morado-oscuro);color:var(--amarillo);font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:8px 18px;border-radius:999px;border:2px solid var(--verde-neon);white-space:nowrap;font-size:1rem}
