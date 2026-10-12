@@ -99,11 +99,11 @@ function iniciarAnimaciones() {
     .from(".hero-card", { scale: 0.8, opacity: 0, duration: 0.8 }, "-=0.6")
     .from(".etiqueta", { y: -20, opacity: 0, duration: 0.5 }, "-=0.4")
     .from(".logo-huntrix span", { scale: 0, opacity: 0, rotation: -10, stagger: 0.12, duration: 0.7 }, "-=0.2")
-    .from(".subtitulo", { y: 20, opacity: 0, duration: 0.5 }, "-=0.3")
-    .from(".cumple-badge", { scale: 0, rotation: 360, duration: 1 }, "-=0.2")
+    .from(".logo-sub", { y: 20, opacity: 0, duration: 0.5 }, "-=0.3")
+    .from(".foto-cumple", { scale: 0, rotation: -6, duration: 1 }, "-=0.2")
     .from(".nombre", { y: 30, opacity: 0, duration: 0.7 }, "-=0.4");
 
-  gsap.to(".cumple-badge", { boxShadow: "0 0 45px #7cff6b", repeat: -1, yoyo: true, duration: 1.2, ease: "sine.inOut" });
+  gsap.to(".foto-cumple", { boxShadow: "0 0 45px #7cff6b", repeat: -1, yoyo: true, duration: 1.2, ease: "sine.inOut" });
 
   gsap.to(".lateral.izq", { y: -120, rotation: -8, scrollTrigger: { trigger: "#inicio", start: "top top", end: "bottom top", scrub: true } });
   gsap.to(".lateral.der", { y: 120, rotation: 8, scrollTrigger: { trigger: "#inicio", start: "top top", end: "bottom top", scrub: true } });

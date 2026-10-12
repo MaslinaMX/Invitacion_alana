@@ -43,7 +43,7 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 .lateral.izq{animation:flotar 7s ease-in-out infinite}
 .lateral.der{animation:flotar 7s ease-in-out infinite reverse}
 .etiqueta{display:inline-block;letter-spacing:3px;text-transform:uppercase;font-weight:900;color:var(--morado-oscuro);background:var(--verde-neon);padding:8px 20px;border-radius:999px;margin-bottom:14px;box-shadow:0 4px 0 rgba(0,0,0,.25)}
-.logo-huntrix{font-weight:900;font-size:clamp(3rem,10vw,6rem);line-height:1;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.logo-huntrix{white-space:nowrap;font-weight:900;font-size:clamp(1.7rem,7.2vw,4.4rem);line-height:1;display:flex;gap:.2em;justify-content:center;align-items:baseline}
 .logo-huntrix span:nth-child(1){color:var(--rosa)}
 .logo-huntrix .x{color:var(--verde-neon)}
 .logo-huntrix span:nth-child(3){color:var(--naranja)}
@@ -127,3 +127,10 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 .form{overflow:visible;gap:20px}
 .form textarea{height:120px;resize:none}
 .form .btn{margin-top:6px;margin-bottom:0;align-self:stretch;position:relative;z-index:2}
+
+/* ===== v10: subtítulo HALLOWEEN y foto de Alana ===== */
+.logo-sub{font-weight:900;font-size:clamp(1.5rem,6vw,3.2rem);letter-spacing:.2em;color:var(--naranja);text-shadow:4px 4px 0 var(--morado-oscuro);margin-top:6px}
+.logo-sub .x{color:var(--verde-neon)}
+.foto-cumple{position:relative;width:min(72vw,300px);margin:24px auto;border-radius:28px;overflow:hidden;border:5px solid var(--verde-neon);box-shadow:0 0 28px var(--verde-neon),0 12px 30px rgba(0,0,0,.4)}
+.foto-cumple img{display:block;width:100%;height:auto}
+.foto-anos{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:var(--morado-oscuro);color:var(--amarillo);font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:8px 18px;border-radius:999px;border:2px solid var(--verde-neon);white-space:nowrap;font-size:1rem}
