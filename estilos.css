@@ -10,7 +10,7 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 [hidden]{display:none!important}
 
 /* ===== Fondo ===== */
-.fondo-pagina{position:fixed;inset:0;z-index:-2;background:var(--morado-oscuro) url("IMG_5558.png") center/cover no-repeat}
+.fondo-pagina{position:fixed;inset:0;z-index:-2;background:var(--morado-oscuro) url("https://ik.imagekit.io/maslina/IMG_5571.jpeg") center/cover no-repeat}
 .fondo-pagina::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,10,31,.5),rgba(42,18,72,.75))}
 .fondo-decorativo{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
 .deco{position:absolute;opacity:.4;animation:flotar 8s ease-in-out infinite;user-select:none}
