@@ -134,3 +134,8 @@ body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:va
 .foto-cumple{position:relative;width:min(68vw,300px);aspect-ratio:1/1;margin:24px auto;border-radius:50%;overflow:hidden;border:6px solid #f2c14e;box-shadow:0 0 28px var(--verde-neon),0 12px 30px rgba(0,0,0,.4)}
 .foto-cumple img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 .foto-anos{position:relative;display:block;width:max-content;margin:-4px auto 0;background:var(--morado-oscuro);color:var(--amarillo);font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:8px 18px;border-radius:999px;border:2px solid var(--verde-neon);white-space:nowrap;font-size:1rem}
+
+/* ===== v11: título de recomendaciones en una línea ===== */
+.titulo-reco{white-space:nowrap;font-size:clamp(1rem,5vw,2.4rem);letter-spacing:.5px;margin-bottom:18px}
+#recomendaciones .ubicacion-card{padding:40px 20px}
+@media (max-width:600px){#recomendaciones .ubicacion-card{padding:32px 14px}}

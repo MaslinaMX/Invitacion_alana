@@ -1,40 +1,51 @@
-// ===== Audio: arranca en el segundo 55 =====
-const INICIO_CANCION = 55; // segundos
-const audio = document.getElementById("cancion");
+// ===== Audio: SoundCloud, arranca en el segundo 55 y se repite =====
+const INICIO_CANCION = 55000; // milisegundos
+const scIframe = document.getElementById("sc-player");
 const botonMusica = document.getElementById("play-pausa");
+let scWidget = null;
+let listo = false;
+let quiereSonar = false;
+let yaIniciada = false;
 
-function actualizarBoton() {
-  const sonando = !audio.paused;
+function actualizarBoton(sonando) {
   botonMusica.innerHTML = sonando ? `<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.5" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1.5" fill="currentColor"/></svg>` : `<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>`;
   botonMusica.setAttribute("aria-label", sonando ? "Pausar música" : "Reproducir música");
 }
 
 function reproducir() {
-  if (audio.currentTime < INICIO_CANCION) {
-    if (audio.readyState >= 1) audio.currentTime = INICIO_CANCION;
-    else audio.addEventListener("loadedmetadata", () => { audio.currentTime = INICIO_CANCION; }, { once: true });
+  quiereSonar = true;
+  if (!scWidget || !listo) return;
+  if (!yaIniciada) {
+    scWidget.seekTo(INICIO_CANCION);
+    yaIniciada = true;
   }
-  audio.play().catch(() => {});
+  scWidget.play();
 }
 
-// Al terminar vuelve al segundo 55
-audio.loop = false; // el bucle se maneja aquí para volver siempre al segundo 55
-audio.addEventListener("ended", () => {
-  audio.currentTime = INICIO_CANCION;
-  audio.play().catch(() => {});
-});
-audio.addEventListener("play", actualizarBoton);
-audio.addEventListener("pause", actualizarBoton);
+function pausarMusica() {
+  if (scWidget) scWidget.pause();
+}
+
+if (window.SC && scIframe) {
+  scWidget = SC.Widget(scIframe);
+  scWidget.bind(SC.Widget.Events.READY, () => {
+    listo = true;
+    if (quiereSonar) reproducir();
+  });
+  scWidget.bind(SC.Widget.Events.PLAY, () => actualizarBoton(true));
+  scWidget.bind(SC.Widget.Events.PAUSE, () => actualizarBoton(false));
+  scWidget.bind(SC.Widget.Events.FINISH, () => {
+    scWidget.seekTo(INICIO_CANCION);
+    scWidget.play();
+  });
+}
 
 botonMusica.addEventListener("click", () => {
-  if (audio.paused) reproducir();
-  else audio.pause();
+  if (scWidget && listo) scWidget.isPaused(p => (p ? reproducir() : pausarMusica()));
+  else reproducir();
 });
 
-// ===== Pausar la música si cambian de pestaña o cierran la página =====
-function pausarMusica() {
-  if (!audio.paused) audio.pause();
-}
+// Pausar si cambian de pestaña o cierran la página
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) pausarMusica();
 });
