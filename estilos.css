@@ -1,0 +1,129 @@
+:root{
+  --lila:#b9a0ec;--lila-claro:#e6dcfa;--rosa:#ff8fc7;--rosa-oscuro:#e0479a;
+  --morado:#5b2a86;--morado-oscuro:#2a1248;--negro:#120a1f;--verde-neon:#7cff6b;
+  --naranja:#ff8a1f;--amarillo:#ffd84d;--blanco:#fffaff;
+  --fuente:"Nunito","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fuente);font-weight:700;color:var(--blanco);background:var(--morado-oscuro);overflow-x:hidden;line-height:1.5}
+[hidden]{display:none!important}
+
+/* ===== Fondo ===== */
+.fondo-pagina{position:fixed;inset:0;z-index:-2;background:var(--morado-oscuro) url("IMG_5558.png") center/cover no-repeat}
+.fondo-pagina::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,10,31,.5),rgba(42,18,72,.75))}
+.fondo-decorativo{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.deco{position:absolute;opacity:.4;animation:flotar 8s ease-in-out infinite;user-select:none}
+@keyframes flotar{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-22px) rotate(6deg)}}
+@keyframes brillar{0%,100%{opacity:.25;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+
+/* ===== Glass ===== */
+.glass{background:rgba(255,255,255,.14);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border:2px solid rgba(255,255,255,.4);border-radius:32px;box-shadow:0 12px 40px rgba(0,0,0,.35);text-shadow:0 2px 8px rgba(0,0,0,.35)}
+
+/* ===== Portada ===== */
+.intro{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .6s;background:rgba(18,10,31,.35)}
+.intro .glass{display:flex;flex-direction:column;align-items:center;gap:22px;padding:36px 30px;max-width:460px;width:100%;text-align:center}
+.intro-titulo{font-weight:900;font-size:clamp(1.6rem,6vw,2.3rem);color:var(--amarillo);text-transform:uppercase;letter-spacing:2px;text-shadow:0 0 14px rgba(255,216,77,.6),0 3px 0 var(--morado-oscuro)}
+.intro-img{width:min(70vw,340px);height:auto;border-radius:24px;filter:drop-shadow(0 12px 24px rgba(0,0,0,.4));animation:flotar 5s ease-in-out infinite;background:rgba(255,255,255,.1)}
+.calabaza{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--blanco);font-family:inherit}
+.calabaza span{font-size:5rem;display:block;filter:drop-shadow(0 0 14px var(--naranja));animation:rebote 1.2s ease-in-out infinite}
+.calabaza small{font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:1rem}
+.calabaza:focus-visible{outline:3px solid var(--verde-neon);outline-offset:6px;border-radius:12px}
+@keyframes rebote{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-14px) scale(1.1)}}
+
+/* ===== Secciones ===== */
+.seccion{position:relative;z-index:1;min-height:100vh;padding:90px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.titulo-seccion{font-weight:900;font-size:clamp(1.9rem,5vw,3rem);color:var(--rosa);text-shadow:0 0 14px rgba(255,143,199,.6),0 3px 0 var(--morado-oscuro);margin-bottom:34px;text-transform:uppercase;letter-spacing:1px}
+.texto-centro{max-width:600px;margin:0 auto 26px;font-size:1.2rem;color:var(--lila-claro)}
+
+/* ===== Hero ===== */
+.hero-fila{display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,50px);width:100%;max-width:1200px}
+.hero-card{padding:44px 36px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;max-width:700px;width:100%}
+.lateral{width:clamp(120px,16vw,230px);height:auto;flex-shrink:0;border-radius:28px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.4));background:rgba(255,255,255,.1)}
+.lateral.izq{animation:flotar 7s ease-in-out infinite}
+.lateral.der{animation:flotar 7s ease-in-out infinite reverse}
+.etiqueta{display:inline-block;letter-spacing:3px;text-transform:uppercase;font-weight:900;color:var(--morado-oscuro);background:var(--verde-neon);padding:8px 20px;border-radius:999px;margin-bottom:14px;box-shadow:0 4px 0 rgba(0,0,0,.25)}
+.logo-huntrix{font-weight:900;font-size:clamp(3rem,10vw,6rem);line-height:1;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.logo-huntrix span:nth-child(1){color:var(--rosa)}
+.logo-huntrix .x{color:var(--verde-neon)}
+.logo-huntrix span:nth-child(3){color:var(--naranja)}
+.subtitulo{font-size:1.4rem;font-weight:900;color:var(--amarillo);margin-top:10px;text-transform:uppercase;letter-spacing:2px}
+.cumple-badge{margin:26px auto;width:170px;height:170px;border-radius:50%;background:rgba(91,42,134,.65);border:7px solid var(--verde-neon);box-shadow:0 0 28px var(--verde-neon),inset 0 0 20px rgba(0,0,0,.4);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.cumple-badge::before{content:"🎂";position:absolute;top:-22px;font-size:2.4rem;animation:flotar 3s ease-in-out infinite}
+.cumple-num{font-weight:900;font-size:5.2rem;line-height:1}
+.cumple-texto{font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:1.1rem}
+.nombre{font-weight:900;font-size:clamp(1.9rem,5.5vw,3rem);line-height:1.15;color:var(--blanco)}
+.nombre span{display:block;font-size:.6em;font-weight:900;color:var(--lila-claro);margin-top:8px}
+.scroll-hint{margin-top:28px;font-weight:900;color:var(--lila-claro);animation:flotar 2s ease-in-out infinite;font-size:1.1rem}
+
+/* ===== Decoración festiva ===== */
+.confeti{position:absolute;font-size:1.8rem;animation:brillar 2.6s ease-in-out infinite;pointer-events:none;z-index:1}
+.globo{position:absolute;font-size:3rem;animation:flotar 6s ease-in-out infinite;pointer-events:none;z-index:1}
+
+/* ===== Tarjetas grandes ===== */
+.tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;width:100%;max-width:1040px}
+.tarjeta{padding:40px 28px;transition:transform .3s}
+.tarjeta:hover{transform:translateY(-8px) scale(1.02)}
+.tarjeta .icono{font-size:3.6rem;margin-bottom:12px}
+.tarjeta h3{font-weight:900;font-size:1.3rem;color:var(--verde-neon);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
+.tarjeta p{font-size:1.15rem}
+.destacado{font-weight:900;font-size:1.4rem!important;color:var(--amarillo)!important;margin:4px 0}
+
+/* ===== Countdown (sin segundos) ===== */
+.contador{display:flex;gap:22px;flex-wrap:nowrap;justify-content:center;align-items:stretch;width:100%}
+.caja{width:200px;padding:32px 14px;display:flex;flex-direction:column;align-items:center}
+.caja span{font-weight:900;font-size:4.2rem;line-height:1;color:var(--amarillo);text-shadow:0 3px 0 var(--morado-oscuro)}
+.caja small{font-weight:900;text-transform:uppercase;font-size:1rem;letter-spacing:2px;color:var(--lila-claro);margin-top:10px}
+
+/* ===== Ubicación / RSVP ===== */
+.ubicacion-card{padding:52px 36px;max-width:820px;width:100%}
+.form{width:100%;max-width:560px;display:flex;flex-direction:column;gap:22px;text-align:left;padding:36px 32px}
+.form label{display:flex;flex-direction:column;gap:8px;font-weight:900;font-size:1.05rem;color:var(--blanco)}
+.form input,.form select,.form textarea{font-family:inherit;font-weight:700;font-size:1.1rem;padding:16px 18px;border:2px solid rgba(255,255,255,.45);border-radius:16px;outline:none;background:rgba(255,255,255,.2);color:var(--blanco);transition:border-color .2s,box-shadow .2s}
+.form input::placeholder,.form textarea::placeholder{color:rgba(255,255,255,.7)}
+.form select option{color:var(--negro)}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--verde-neon);box-shadow:0 0 0 4px rgba(124,255,107,.3)}
+.btn{display:inline-block;padding:18px 34px;border-radius:999px;font-family:inherit;font-weight:900;font-size:1.1rem;text-decoration:none;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;color:var(--blanco)}
+.btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 10px 22px rgba(0,0,0,.35)}
+.btn-morado{background:rgba(91,42,134,.85);border:3px solid var(--verde-neon)}
+.btn-rosa{background:var(--rosa);color:var(--morado-oscuro);box-shadow:0 7px 0 var(--morado);font-size:1.2rem}
+.confirmacion{margin-top:22px;font-size:1.3rem;font-weight:900;color:var(--verde-neon)}
+
+/* ===== Pie ===== */
+.pie{position:relative;z-index:1;padding:36px 30px 120px;text-align:center;color:var(--lila-claro);font-weight:900;font-size:1.1rem;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+
+/* ===== Reproductor ===== */
+.reproductor{position:fixed;bottom:24px;right:24px;z-index:50;width:64px;height:64px;border-radius:50%;border:3px solid var(--verde-neon);background:rgba(91,42,134,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--blanco);cursor:pointer;box-shadow:0 0 20px rgba(124,255,107,.7),0 8px 20px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s;padding:0}
+.reproductor svg{display:block}
+.reproductor .icono-play{margin-left:4px}
+.reproductor:hover{transform:scale(1.08)}
+.reproductor:active{transform:scale(.95)}
+.reproductor:focus-visible{outline:3px solid var(--rosa);outline-offset:4px}
+
+@media (max-width:900px){.lateral{display:none}}
+@media (max-width:600px){
+  .contador{gap:10px}.caja{width:auto;flex:1;padding:22px 6px}.caja span{font-size:2.6rem}.caja small{font-size:.75rem;letter-spacing:1px}
+  .cumple-badge{width:145px;height:145px}.cumple-num{font-size:4.2rem}
+  .hero-card{padding:30px 20px}
+  .tarjeta{padding:30px 22px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== v6: nombre destacado estilo HUNTR/X ===== */
+.nombre{font-size:clamp(2.4rem,8.5vw,4.2rem);font-weight:900;color:var(--amarillo);letter-spacing:1px;text-transform:uppercase;text-shadow:4px 4px 0 var(--morado-oscuro),0 0 22px rgba(255,216,77,.55);line-height:1.05;position:relative;padding-bottom:22px}
+.nombre span{font-size:.5em;color:var(--rosa);text-transform:uppercase;letter-spacing:3px;text-shadow:3px 3px 0 var(--morado-oscuro);margin-top:10px}
+.nombre::after{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:70%;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--rosa),var(--verde-neon),var(--naranja));box-shadow:0 0 14px rgba(124,255,107,.6)}
+.nombre .nombre-sparkle{display:inline-block;color:var(--verde-neon);font-size:.6em;vertical-align:middle;animation:brillar 2s ease-in-out infinite;margin:0 6px;letter-spacing:0;text-shadow:0 0 10px var(--verde-neon);margin-top:0}
+
+/* ===== v6: botón RSVP siempre dentro de la card ===== */
+.form{max-width:100%;width:100%;box-sizing:border-box;overflow:hidden}
+.form label{width:100%}
+.form input,.form select,.form textarea{width:100%;max-width:100%;box-sizing:border-box;min-width:0}
+.form .btn{display:block;width:100%;max-width:100%;box-sizing:border-box;white-space:normal;text-align:center;padding:16px 18px;font-size:1.05rem;line-height:1.3}
+@media (max-width:600px){.form{padding:26px 20px}.nombre{font-size:clamp(2rem,10vw,3rem)}}
+
+/* ===== v7: formulario RSVP ===== */
+#rsvp{padding-bottom:160px}
+.form{overflow:visible;gap:20px}
+.form textarea{height:120px;resize:none}
+.form .btn{margin-top:6px;margin-bottom:0;align-self:stretch;position:relative;z-index:2}

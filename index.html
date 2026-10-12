@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>¡Fiesta infantil! Cumple 4 de Alana Valentina · HUNTR/X</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<div class="fondo-pagina" aria-hidden="true"></div>
+
+<!-- Portada -->
+<div class="intro" id="intro">
+  <div class="glass">
+    <p class="intro-titulo">¡Fiesta infantil!</p>
+    <img src="IMG_5558.png" class="intro-img" alt="Mira, Rumi y Zoey de HUNTR/X">
+    <button class="calabaza" id="abrir" aria-label="Abrir invitación">
+      <span aria-hidden="true">🎃</span>
+      <small>Toca para abrir</small>
+    </button>
+  </div>
+</div>
+
+<main id="contenido" hidden>
+  <div class="fondo-decorativo" aria-hidden="true"></div>
+
+  <!-- Hero -->
+  <section class="seccion" id="inicio">
+    <span class="globo" style="top:8%;left:6%">🎈</span>
+    <span class="globo" style="top:12%;right:8%;animation-delay:-2s">🎈</span>
+    <span class="confeti" style="top:22%;left:14%">⭐</span>
+    <span class="confeti" style="bottom:18%;right:12%;animation-delay:-1s"></span>
+    <span class="confeti" style="bottom:12%;left:10%;animation-delay:-1.5s">🦇</span>
+
+    <div class="hero-fila">
+      <img src="IMG_5558.png" class="lateral izq" alt="" aria-hidden="true">
+      <div class="glass hero-card">
+        <p class="etiqueta">¡Estás invitado!</p>
+        <h1 class="logo-huntrix"><span>HUNTR</span><span class="x">/</span><span>X</span></h1>
+        <div class="cumple-badge">
+          <span class="cumple-num">4</span>
+          <span class="cumple-texto">años</span>
+        </div>
+        <h2 class="nombre"><span class="nombre-sparkle" aria-hidden="true">✦</span>Alana Valentina<span>Longoria Aguilar</span></h2>
+        <div class="scroll-hint">Desliza ↓</div>
+      </div>
+      <img src="IMG_5558.png" class="lateral der" alt="" aria-hidden="true">
+    </div>
+  </section>
+
+  <!-- Datos -->
+  <section class="seccion" id="datos">
+    <h2 class="titulo-seccion">¿Cuándo y dónde?</h2>
+    <div class="tarjetas">
+      <article class="glass tarjeta">
+        <div class="icono">📅</div>
+        <h3>Fecha</h3>
+        <p>Viernes</p>
+        <p class="destacado">30 de octubre de 2026</p>
+      </article>
+      <article class="glass tarjeta">
+        <div class="icono">🕓</div>
+        <h3>Hora</h3>
+        <p class="destacado">16:00 hrs</p>
+      </article>
+      <article class="glass tarjeta">
+        <div class="icono">📍</div>
+        <h3>Lugar</h3>
+        <p class="destacado">Splashland</p>
+        <p>Playa del Carmen</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Countdown: días, horas y minutos -->
+  <section class="seccion" id="countdown">
+    <h2 class="titulo-seccion">¡Ya falta poco!</h2>
+    <div class="contador">
+      <div class="glass caja"><span id="dias">00</span><small>días</small></div>
+      <div class="glass caja"><span id="horas">00</span><small>horas</small></div>
+      <div class="glass caja"><span id="minutos">00</span><small>minutos</small></div>
+    </div>
+  </section>
+
+  <!-- Ubicación -->
+  <section class="seccion" id="ubicacion">
+    <div class="glass ubicacion-card">
+      <h2 class="titulo-seccion">Splashland</h2>
+      <p class="texto-centro">Nos vemos en Splashland, Playa del Carmen, para una tarde de albercas, juegos y mucha diversión con las cazadoras de demonios. 🏊‍♀️🦇</p>
+      <a class="btn btn-morado" href="https://www.google.com/maps/search/?api=1&query=Splashland+Playa+del+Carmen" target="_blank" rel="noopener">📍 Ver ubicación en Google Maps</a>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="seccion" id="rsvp">
+    <h2 class="titulo-seccion">Confirma tu asistencia</h2>
+    <p class="texto-centro">Antes del 20 de octubre, por favor. 🎃</p>
+    <form id="form-rsvp" class="glass form">
+      <label>Nombre de quien confirma
+        <input type="text" id="nombre-invitado" placeholder="Ej. Mamá de Alana" required>
+      </label>
+      <label>Número de personas
+        <select id="personas">
+          <option value="1">1 persona</option>
+          <option value="2">2 personas</option>
+          <option value="3">3 personas</option>
+          <option value="4">4 personas</option>
+        </select>
+      </label>
+      <label>Mensaje para Alana (opcional)
+        <textarea id="mensaje" rows="3" placeholder="¡Feliz cumpleaños, Alana!"></textarea>
+      </label>
+      <button type="submit" class="btn btn-rosa">Confirmar por WhatsApp 💜</button>
+    </form>
+    <p class="confirmacion" id="confirmacion" hidden>¡Gracias! Tu confirmación está lista. 🦇</p>
+  </section>
+
+  <footer class="pie">
+    <p>Alana Valentina cumple 4</p>
+  </footer>
+</main>
+
+<audio id="cancion" preload="auto" src="cancion.mp3"></audio>
+<button class="reproductor" id="play-pausa" aria-label="Reproducir música" hidden><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
